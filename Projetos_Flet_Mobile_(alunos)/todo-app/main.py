@@ -59,7 +59,7 @@ class AppToDo:
             style=ft.ButtonStyle( 
                 color=self.cor['texto'], 
                 bgcolor=self.cor['botao'], 
-                shape=ft.Rounded0RectangleBorder (radius=8),
+                shape=ft.RoundedRectangleBorder (radius=8),
             )
         )
     
@@ -138,10 +138,12 @@ class AppToDo:
         self.atualizar_lista_tarefas() 
         return ft.Container( 
             content=self.lista_tarefas, 
+            height=400,
+            padding=10,
             bgcolor=self.cor['fundo'], 
         )
         
-    def atualizar_lista_tarefas (self, e=None): 
+    def atualizar_lista_tarefas(self, e=None): 
         self.lista_tarefas.controls.clear() 
         query= 'SELECT * FROM "tasks"' 
         if self.abas.selected_index == 1: 
@@ -194,7 +196,7 @@ class AppToDo:
             bgcolor=self.cor['item_fundo'] 
         ) 
         self.page.snack_bar.open = True 
-        self.page.update() 
+        self.page.update()
         
-    if __name__ == "__main__": 
+if __name__ == "__main__": 
         ft.app(target=AppToDo) 
